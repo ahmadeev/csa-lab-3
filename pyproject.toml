@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "lab-3-csa-test"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.3"
+pytest-golden = "^0.2.2"
+ruff = "^0.6.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
