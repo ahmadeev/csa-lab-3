@@ -1,6 +1,7 @@
 import unittest
 
 import pytest
+
 from isa import Addressing, Instruction, Opcode
 from translator import expand_lines, parse_labels, parse_lines, remove_comment, split_instruction
 

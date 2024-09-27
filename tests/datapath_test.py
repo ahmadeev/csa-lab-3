@@ -1,6 +1,7 @@
 import unittest
 
 import pytest
+
 from machine import DataPath
 
 
