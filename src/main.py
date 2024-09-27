@@ -3,14 +3,9 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name   }')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if __name__ == "__main__":
+    pass
+    #translator.translator_asm.main("C:\\Users\\danis\\Desktop\\all-stuff\\lab-3-csa-test\\src\\translator\\in\\cat.asm", "C:\\Users\\danis\\Desktop\\all-stuff\\lab-3-csa-test\\src\\translator\\out\\cat_out")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

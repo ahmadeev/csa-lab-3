@@ -1,0 +1,1101 @@
+in_source: |-
+  HELLO: VAR 'hello, world'
+  I: VAR HELLO
+  START: LD [I]
+  CMP 0
+  JZ STOP
+  ST 2047
+  LD (I)
+  ADD 1
+  ST I
+  JMP START
+  STOP: HLT
+in_stdin: ''
+out_log: |
+  DataPath	DEBUG	acc:     0, ar:   14, alu:     0, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:     0, ar:   14, alu:     0, mem_out:     0				Reading memory on AR #14
+  DataPath	DEBUG	acc:     0, ar:   14, alu:     0, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:      1, instr:     0, acc:     0, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     0, ar:   13, alu:     0, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     0, ar:   13, alu:     0, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     0, ar:   13, alu:     0, mem_out:     0				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:      2, instr:     0, acc:     0, mem_out:     0, ar:   13	tick!
+  DataPath	DEBUG	acc:     0, ar:    0, alu:     0, mem_out:     0				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     0, ar:    0, alu:     0, mem_out:     0				Reading memory on AR #0
+  DataPath	DEBUG	acc:     0, ar:    0, alu:     0, mem_out:   104				MEM_OUT <- MEM[0]
+  ControlUnit	DEBUG	PC:   14, tick:      3, instr:     0, acc:     0, mem_out:   104, ar:    0	tick!
+  DataPath	DEBUG	acc:   104, ar:    0, alu:     0, mem_out:   104				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:      3, instr:     0, acc:   104, mem_out:   104, ar:    0	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:      4, instr:     0, acc:   104, mem_out:   104, ar:    0	tick!
+  ControlUnit	INFO	PC:   15, tick:      4, instr:     1, acc:   104, mem_out:   104, ar:    0	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   104, ar:   15, alu:     0, mem_out:   104				AR <- PC
+  DataPath	DEBUG	acc:   104, ar:   15, alu:     0, mem_out:   104				Reading memory on AR #15
+  DataPath	DEBUG	acc:   104, ar:   15, alu:     0, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:      5, instr:     1, acc:   104, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:      5, instr:     1, acc:   104, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:      6, instr:     1, acc:   104, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:      6, instr:     2, acc:   104, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   104, ar:   16, alu:     0, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   104, ar:   16, alu:     0, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   104, ar:   16, alu:     0, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:      7, instr:     2, acc:   104, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:      7, instr:     2, acc:   104, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:      8, instr:     2, acc:   104, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:      8, instr:     3, acc:   104, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   104, ar:   17, alu:     0, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   104, ar:   17, alu:     0, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   104, ar:   17, alu:     0, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:      9, instr:     3, acc:   104, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   104, ar: 2047, alu:     0, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   104, ar: 2047, alu:   104, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   104, ar: 2047, alu:   104, mem_out:  2047				Output: 'h' (104)
+  ControlUnit	DEBUG	PC:   18, tick:      9, instr:     3, acc:   104, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:     10, instr:     3, acc:   104, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:     10, instr:     4, acc:   104, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   104, ar:   18, alu:   104, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   104, ar:   18, alu:   104, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   104, ar:   18, alu:   104, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:     11, instr:     4, acc:   104, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   104, ar:   13, alu:   104, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   104, ar:   13, alu:   104, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   104, ar:   13, alu:   104, mem_out:     0				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:     12, instr:     4, acc:   104, mem_out:     0, ar:   13	tick!
+  DataPath	DEBUG	acc:     0, ar:   13, alu:   104, mem_out:     0				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:     12, instr:     4, acc:     0, mem_out:     0, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:     13, instr:     4, acc:     0, mem_out:     0, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:     13, instr:     5, acc:     0, mem_out:     0, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     0, ar:   19, alu:   104, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:     0, ar:   19, alu:   104, mem_out:     0				Reading memory on AR #19
+  DataPath	DEBUG	acc:     0, ar:   19, alu:   104, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:     14, instr:     5, acc:     0, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     1, ar:   19, alu:     1, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:     14, instr:     5, acc:     1, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:     15, instr:     5, acc:     1, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:     15, instr:     6, acc:     1, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     1, ar:   20, alu:     1, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     1, ar:   20, alu:     1, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     1, ar:   20, alu:     1, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:     16, instr:     6, acc:     1, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:    13				MEM[13] <- 1
+  ControlUnit	DEBUG	PC:   21, tick:     16, instr:     6, acc:     1, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:     17, instr:     6, acc:     1, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:     17, instr:     7, acc:     1, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     1, ar:   21, alu:     1, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     1, ar:   21, alu:     1, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     1, ar:   21, alu:     1, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:     18, instr:     7, acc:     1, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:     18, instr:     7, acc:     1, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:     19, instr:     7, acc:     1, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:     19, instr:     8, acc:     1, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     1, ar:   14, alu:     1, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     1, ar:   14, alu:     1, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     1, ar:   14, alu:     1, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:     20, instr:     8, acc:     1, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     1, ar:   13, alu:     1, mem_out:     1				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:     21, instr:     8, acc:     1, mem_out:     1, ar:   13	tick!
+  DataPath	DEBUG	acc:     1, ar:    1, alu:     1, mem_out:     1				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     1, ar:    1, alu:     1, mem_out:     1				Reading memory on AR #1
+  DataPath	DEBUG	acc:     1, ar:    1, alu:     1, mem_out:   101				MEM_OUT <- MEM[1]
+  ControlUnit	DEBUG	PC:   14, tick:     22, instr:     8, acc:     1, mem_out:   101, ar:    1	tick!
+  DataPath	DEBUG	acc:   101, ar:    1, alu:     1, mem_out:   101				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:     22, instr:     8, acc:   101, mem_out:   101, ar:    1	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:     23, instr:     8, acc:   101, mem_out:   101, ar:    1	tick!
+  ControlUnit	INFO	PC:   15, tick:     23, instr:     9, acc:   101, mem_out:   101, ar:    1	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   101, ar:   15, alu:     1, mem_out:   101				AR <- PC
+  DataPath	DEBUG	acc:   101, ar:   15, alu:     1, mem_out:   101				Reading memory on AR #15
+  DataPath	DEBUG	acc:   101, ar:   15, alu:     1, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:     24, instr:     9, acc:   101, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:     24, instr:     9, acc:   101, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:     25, instr:     9, acc:   101, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:     25, instr:    10, acc:   101, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   101, ar:   16, alu:     1, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   101, ar:   16, alu:     1, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   101, ar:   16, alu:     1, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:     26, instr:    10, acc:   101, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:     26, instr:    10, acc:   101, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:     27, instr:    10, acc:   101, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:     27, instr:    11, acc:   101, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   101, ar:   17, alu:     1, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   101, ar:   17, alu:     1, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   101, ar:   17, alu:     1, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:     28, instr:    11, acc:   101, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   101, ar: 2047, alu:     1, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   101, ar: 2047, alu:   101, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   101, ar: 2047, alu:   101, mem_out:  2047				Output: 'e' (101)
+  ControlUnit	DEBUG	PC:   18, tick:     28, instr:    11, acc:   101, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:     29, instr:    11, acc:   101, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:     29, instr:    12, acc:   101, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   101, ar:   18, alu:   101, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   101, ar:   18, alu:   101, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   101, ar:   18, alu:   101, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:     30, instr:    12, acc:   101, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   101, ar:   13, alu:   101, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   101, ar:   13, alu:   101, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   101, ar:   13, alu:   101, mem_out:     1				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:     31, instr:    12, acc:   101, mem_out:     1, ar:   13	tick!
+  DataPath	DEBUG	acc:     1, ar:   13, alu:   101, mem_out:     1				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:     31, instr:    12, acc:     1, mem_out:     1, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:     32, instr:    12, acc:     1, mem_out:     1, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:     32, instr:    13, acc:     1, mem_out:     1, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     1, ar:   19, alu:   101, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     1, ar:   19, alu:   101, mem_out:     1				Reading memory on AR #19
+  DataPath	DEBUG	acc:     1, ar:   19, alu:   101, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:     33, instr:    13, acc:     1, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     2, ar:   19, alu:     2, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:     33, instr:    13, acc:     2, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:     34, instr:    13, acc:     2, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:     34, instr:    14, acc:     2, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     2, ar:   20, alu:     2, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     2, ar:   20, alu:     2, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     2, ar:   20, alu:     2, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:     35, instr:    14, acc:     2, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:    13				MEM[13] <- 2
+  ControlUnit	DEBUG	PC:   21, tick:     35, instr:    14, acc:     2, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:     36, instr:    14, acc:     2, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:     36, instr:    15, acc:     2, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     2, ar:   21, alu:     2, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     2, ar:   21, alu:     2, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     2, ar:   21, alu:     2, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:     37, instr:    15, acc:     2, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:     37, instr:    15, acc:     2, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:     38, instr:    15, acc:     2, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:     38, instr:    16, acc:     2, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     2, ar:   14, alu:     2, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     2, ar:   14, alu:     2, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     2, ar:   14, alu:     2, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:     39, instr:    16, acc:     2, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     2, ar:   13, alu:     2, mem_out:     2				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:     40, instr:    16, acc:     2, mem_out:     2, ar:   13	tick!
+  DataPath	DEBUG	acc:     2, ar:    2, alu:     2, mem_out:     2				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     2, ar:    2, alu:     2, mem_out:     2				Reading memory on AR #2
+  DataPath	DEBUG	acc:     2, ar:    2, alu:     2, mem_out:   108				MEM_OUT <- MEM[2]
+  ControlUnit	DEBUG	PC:   14, tick:     41, instr:    16, acc:     2, mem_out:   108, ar:    2	tick!
+  DataPath	DEBUG	acc:   108, ar:    2, alu:     2, mem_out:   108				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:     41, instr:    16, acc:   108, mem_out:   108, ar:    2	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:     42, instr:    16, acc:   108, mem_out:   108, ar:    2	tick!
+  ControlUnit	INFO	PC:   15, tick:     42, instr:    17, acc:   108, mem_out:   108, ar:    2	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     2, mem_out:   108				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     2, mem_out:   108				Reading memory on AR #15
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     2, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:     43, instr:    17, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:     43, instr:    17, acc:   108, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:     44, instr:    17, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:     44, instr:    18, acc:   108, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     2, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     2, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     2, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:     45, instr:    18, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:     45, instr:    18, acc:   108, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:     46, instr:    18, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:     46, instr:    19, acc:   108, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     2, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     2, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     2, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:     47, instr:    19, acc:   108, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:     2, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Output: 'l' (108)
+  ControlUnit	DEBUG	PC:   18, tick:     47, instr:    19, acc:   108, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:     48, instr:    19, acc:   108, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:     48, instr:    20, acc:   108, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:     49, instr:    20, acc:   108, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:     2				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:     50, instr:    20, acc:   108, mem_out:     2, ar:   13	tick!
+  DataPath	DEBUG	acc:     2, ar:   13, alu:   108, mem_out:     2				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:     50, instr:    20, acc:     2, mem_out:     2, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:     51, instr:    20, acc:     2, mem_out:     2, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:     51, instr:    21, acc:     2, mem_out:     2, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     2, ar:   19, alu:   108, mem_out:     2				AR <- PC
+  DataPath	DEBUG	acc:     2, ar:   19, alu:   108, mem_out:     2				Reading memory on AR #19
+  DataPath	DEBUG	acc:     2, ar:   19, alu:   108, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:     52, instr:    21, acc:     2, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     3, ar:   19, alu:     3, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:     52, instr:    21, acc:     3, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:     53, instr:    21, acc:     3, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:     53, instr:    22, acc:     3, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     3, ar:   20, alu:     3, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     3, ar:   20, alu:     3, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     3, ar:   20, alu:     3, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:     54, instr:    22, acc:     3, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:    13				MEM[13] <- 3
+  ControlUnit	DEBUG	PC:   21, tick:     54, instr:    22, acc:     3, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:     55, instr:    22, acc:     3, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:     55, instr:    23, acc:     3, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     3, ar:   21, alu:     3, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     3, ar:   21, alu:     3, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     3, ar:   21, alu:     3, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:     56, instr:    23, acc:     3, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:     56, instr:    23, acc:     3, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:     57, instr:    23, acc:     3, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:     57, instr:    24, acc:     3, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     3, ar:   14, alu:     3, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     3, ar:   14, alu:     3, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     3, ar:   14, alu:     3, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:     58, instr:    24, acc:     3, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     3, ar:   13, alu:     3, mem_out:     3				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:     59, instr:    24, acc:     3, mem_out:     3, ar:   13	tick!
+  DataPath	DEBUG	acc:     3, ar:    3, alu:     3, mem_out:     3				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     3, ar:    3, alu:     3, mem_out:     3				Reading memory on AR #3
+  DataPath	DEBUG	acc:     3, ar:    3, alu:     3, mem_out:   108				MEM_OUT <- MEM[3]
+  ControlUnit	DEBUG	PC:   14, tick:     60, instr:    24, acc:     3, mem_out:   108, ar:    3	tick!
+  DataPath	DEBUG	acc:   108, ar:    3, alu:     3, mem_out:   108				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:     60, instr:    24, acc:   108, mem_out:   108, ar:    3	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:     61, instr:    24, acc:   108, mem_out:   108, ar:    3	tick!
+  ControlUnit	INFO	PC:   15, tick:     61, instr:    25, acc:   108, mem_out:   108, ar:    3	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     3, mem_out:   108				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     3, mem_out:   108				Reading memory on AR #15
+  DataPath	DEBUG	acc:   108, ar:   15, alu:     3, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:     62, instr:    25, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:     62, instr:    25, acc:   108, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:     63, instr:    25, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:     63, instr:    26, acc:   108, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     3, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     3, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   108, ar:   16, alu:     3, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:     64, instr:    26, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:     64, instr:    26, acc:   108, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:     65, instr:    26, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:     65, instr:    27, acc:   108, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     3, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     3, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   108, ar:   17, alu:     3, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:     66, instr:    27, acc:   108, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:     3, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Output: 'l' (108)
+  ControlUnit	DEBUG	PC:   18, tick:     66, instr:    27, acc:   108, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:     67, instr:    27, acc:   108, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:     67, instr:    28, acc:   108, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:     68, instr:    28, acc:   108, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:     3				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:     69, instr:    28, acc:   108, mem_out:     3, ar:   13	tick!
+  DataPath	DEBUG	acc:     3, ar:   13, alu:   108, mem_out:     3				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:     69, instr:    28, acc:     3, mem_out:     3, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:     70, instr:    28, acc:     3, mem_out:     3, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:     70, instr:    29, acc:     3, mem_out:     3, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     3, ar:   19, alu:   108, mem_out:     3				AR <- PC
+  DataPath	DEBUG	acc:     3, ar:   19, alu:   108, mem_out:     3				Reading memory on AR #19
+  DataPath	DEBUG	acc:     3, ar:   19, alu:   108, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:     71, instr:    29, acc:     3, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     4, ar:   19, alu:     4, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:     71, instr:    29, acc:     4, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:     72, instr:    29, acc:     4, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:     72, instr:    30, acc:     4, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     4, ar:   20, alu:     4, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     4, ar:   20, alu:     4, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     4, ar:   20, alu:     4, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:     73, instr:    30, acc:     4, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:    13				MEM[13] <- 4
+  ControlUnit	DEBUG	PC:   21, tick:     73, instr:    30, acc:     4, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:     74, instr:    30, acc:     4, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:     74, instr:    31, acc:     4, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     4, ar:   21, alu:     4, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     4, ar:   21, alu:     4, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     4, ar:   21, alu:     4, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:     75, instr:    31, acc:     4, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:     75, instr:    31, acc:     4, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:     76, instr:    31, acc:     4, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:     76, instr:    32, acc:     4, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     4, ar:   14, alu:     4, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     4, ar:   14, alu:     4, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     4, ar:   14, alu:     4, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:     77, instr:    32, acc:     4, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     4, ar:   13, alu:     4, mem_out:     4				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:     78, instr:    32, acc:     4, mem_out:     4, ar:   13	tick!
+  DataPath	DEBUG	acc:     4, ar:    4, alu:     4, mem_out:     4				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     4, ar:    4, alu:     4, mem_out:     4				Reading memory on AR #4
+  DataPath	DEBUG	acc:     4, ar:    4, alu:     4, mem_out:   111				MEM_OUT <- MEM[4]
+  ControlUnit	DEBUG	PC:   14, tick:     79, instr:    32, acc:     4, mem_out:   111, ar:    4	tick!
+  DataPath	DEBUG	acc:   111, ar:    4, alu:     4, mem_out:   111				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:     79, instr:    32, acc:   111, mem_out:   111, ar:    4	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:     80, instr:    32, acc:   111, mem_out:   111, ar:    4	tick!
+  ControlUnit	INFO	PC:   15, tick:     80, instr:    33, acc:   111, mem_out:   111, ar:    4	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     4, mem_out:   111				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     4, mem_out:   111				Reading memory on AR #15
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     4, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:     81, instr:    33, acc:   111, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:     81, instr:    33, acc:   111, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:     82, instr:    33, acc:   111, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:     82, instr:    34, acc:   111, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     4, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     4, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     4, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:     83, instr:    34, acc:   111, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:     83, instr:    34, acc:   111, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:     84, instr:    34, acc:   111, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:     84, instr:    35, acc:   111, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     4, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     4, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     4, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:     85, instr:    35, acc:   111, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   111, ar: 2047, alu:     4, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   111, ar: 2047, alu:   111, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   111, ar: 2047, alu:   111, mem_out:  2047				Output: 'o' (111)
+  ControlUnit	DEBUG	PC:   18, tick:     85, instr:    35, acc:   111, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:     86, instr:    35, acc:   111, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:     86, instr:    36, acc:   111, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:     87, instr:    36, acc:   111, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:     4				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:     88, instr:    36, acc:   111, mem_out:     4, ar:   13	tick!
+  DataPath	DEBUG	acc:     4, ar:   13, alu:   111, mem_out:     4				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:     88, instr:    36, acc:     4, mem_out:     4, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:     89, instr:    36, acc:     4, mem_out:     4, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:     89, instr:    37, acc:     4, mem_out:     4, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     4, ar:   19, alu:   111, mem_out:     4				AR <- PC
+  DataPath	DEBUG	acc:     4, ar:   19, alu:   111, mem_out:     4				Reading memory on AR #19
+  DataPath	DEBUG	acc:     4, ar:   19, alu:   111, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:     90, instr:    37, acc:     4, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     5, ar:   19, alu:     5, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:     90, instr:    37, acc:     5, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:     91, instr:    37, acc:     5, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:     91, instr:    38, acc:     5, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     5, ar:   20, alu:     5, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     5, ar:   20, alu:     5, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     5, ar:   20, alu:     5, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:     92, instr:    38, acc:     5, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:    13				MEM[13] <- 5
+  ControlUnit	DEBUG	PC:   21, tick:     92, instr:    38, acc:     5, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:     93, instr:    38, acc:     5, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:     93, instr:    39, acc:     5, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     5, ar:   21, alu:     5, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     5, ar:   21, alu:     5, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     5, ar:   21, alu:     5, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:     94, instr:    39, acc:     5, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:     94, instr:    39, acc:     5, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:     95, instr:    39, acc:     5, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:     95, instr:    40, acc:     5, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     5, ar:   14, alu:     5, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     5, ar:   14, alu:     5, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     5, ar:   14, alu:     5, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:     96, instr:    40, acc:     5, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     5, ar:   13, alu:     5, mem_out:     5				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:     97, instr:    40, acc:     5, mem_out:     5, ar:   13	tick!
+  DataPath	DEBUG	acc:     5, ar:    5, alu:     5, mem_out:     5				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     5, ar:    5, alu:     5, mem_out:     5				Reading memory on AR #5
+  DataPath	DEBUG	acc:     5, ar:    5, alu:     5, mem_out:    44				MEM_OUT <- MEM[5]
+  ControlUnit	DEBUG	PC:   14, tick:     98, instr:    40, acc:     5, mem_out:    44, ar:    5	tick!
+  DataPath	DEBUG	acc:    44, ar:    5, alu:     5, mem_out:    44				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:     98, instr:    40, acc:    44, mem_out:    44, ar:    5	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:     99, instr:    40, acc:    44, mem_out:    44, ar:    5	tick!
+  ControlUnit	INFO	PC:   15, tick:     99, instr:    41, acc:    44, mem_out:    44, ar:    5	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:    44, ar:   15, alu:     5, mem_out:    44				AR <- PC
+  DataPath	DEBUG	acc:    44, ar:   15, alu:     5, mem_out:    44				Reading memory on AR #15
+  DataPath	DEBUG	acc:    44, ar:   15, alu:     5, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    100, instr:    41, acc:    44, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    100, instr:    41, acc:    44, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    101, instr:    41, acc:    44, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    101, instr:    42, acc:    44, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:    44, ar:   16, alu:     5, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:    44, ar:   16, alu:     5, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:    44, ar:   16, alu:     5, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    102, instr:    42, acc:    44, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    102, instr:    42, acc:    44, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    103, instr:    42, acc:    44, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    103, instr:    43, acc:    44, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:    44, ar:   17, alu:     5, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:    44, ar:   17, alu:     5, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:    44, ar:   17, alu:     5, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    104, instr:    43, acc:    44, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:    44, ar: 2047, alu:     5, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    44, ar: 2047, alu:    44, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:    44, ar: 2047, alu:    44, mem_out:  2047				Output: ',' (44)
+  ControlUnit	DEBUG	PC:   18, tick:    104, instr:    43, acc:    44, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    105, instr:    43, acc:    44, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    105, instr:    44, acc:    44, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:    44, ar:   18, alu:    44, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:    44, ar:   18, alu:    44, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:    44, ar:   18, alu:    44, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    106, instr:    44, acc:    44, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:    44, ar:   13, alu:    44, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    44, ar:   13, alu:    44, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:    44, ar:   13, alu:    44, mem_out:     5				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    107, instr:    44, acc:    44, mem_out:     5, ar:   13	tick!
+  DataPath	DEBUG	acc:     5, ar:   13, alu:    44, mem_out:     5				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    107, instr:    44, acc:     5, mem_out:     5, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    108, instr:    44, acc:     5, mem_out:     5, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    108, instr:    45, acc:     5, mem_out:     5, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     5, ar:   19, alu:    44, mem_out:     5				AR <- PC
+  DataPath	DEBUG	acc:     5, ar:   19, alu:    44, mem_out:     5				Reading memory on AR #19
+  DataPath	DEBUG	acc:     5, ar:   19, alu:    44, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    109, instr:    45, acc:     5, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     6, ar:   19, alu:     6, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    109, instr:    45, acc:     6, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    110, instr:    45, acc:     6, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    110, instr:    46, acc:     6, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     6, ar:   20, alu:     6, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     6, ar:   20, alu:     6, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     6, ar:   20, alu:     6, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    111, instr:    46, acc:     6, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:    13				MEM[13] <- 6
+  ControlUnit	DEBUG	PC:   21, tick:    111, instr:    46, acc:     6, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    112, instr:    46, acc:     6, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    112, instr:    47, acc:     6, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     6, ar:   21, alu:     6, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     6, ar:   21, alu:     6, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     6, ar:   21, alu:     6, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    113, instr:    47, acc:     6, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    113, instr:    47, acc:     6, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    114, instr:    47, acc:     6, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    114, instr:    48, acc:     6, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     6, ar:   14, alu:     6, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     6, ar:   14, alu:     6, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     6, ar:   14, alu:     6, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    115, instr:    48, acc:     6, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     6, ar:   13, alu:     6, mem_out:     6				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    116, instr:    48, acc:     6, mem_out:     6, ar:   13	tick!
+  DataPath	DEBUG	acc:     6, ar:    6, alu:     6, mem_out:     6				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     6, ar:    6, alu:     6, mem_out:     6				Reading memory on AR #6
+  DataPath	DEBUG	acc:     6, ar:    6, alu:     6, mem_out:    32				MEM_OUT <- MEM[6]
+  ControlUnit	DEBUG	PC:   14, tick:    117, instr:    48, acc:     6, mem_out:    32, ar:    6	tick!
+  DataPath	DEBUG	acc:    32, ar:    6, alu:     6, mem_out:    32				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    117, instr:    48, acc:    32, mem_out:    32, ar:    6	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    118, instr:    48, acc:    32, mem_out:    32, ar:    6	tick!
+  ControlUnit	INFO	PC:   15, tick:    118, instr:    49, acc:    32, mem_out:    32, ar:    6	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:    32, ar:   15, alu:     6, mem_out:    32				AR <- PC
+  DataPath	DEBUG	acc:    32, ar:   15, alu:     6, mem_out:    32				Reading memory on AR #15
+  DataPath	DEBUG	acc:    32, ar:   15, alu:     6, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    119, instr:    49, acc:    32, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    119, instr:    49, acc:    32, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    120, instr:    49, acc:    32, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    120, instr:    50, acc:    32, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:    32, ar:   16, alu:     6, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:    32, ar:   16, alu:     6, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:    32, ar:   16, alu:     6, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    121, instr:    50, acc:    32, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    121, instr:    50, acc:    32, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    122, instr:    50, acc:    32, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    122, instr:    51, acc:    32, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:    32, ar:   17, alu:     6, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:    32, ar:   17, alu:     6, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:    32, ar:   17, alu:     6, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    123, instr:    51, acc:    32, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:    32, ar: 2047, alu:     6, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    32, ar: 2047, alu:    32, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:    32, ar: 2047, alu:    32, mem_out:  2047				Output: ' ' (32)
+  ControlUnit	DEBUG	PC:   18, tick:    123, instr:    51, acc:    32, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    124, instr:    51, acc:    32, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    124, instr:    52, acc:    32, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:    32, ar:   18, alu:    32, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:    32, ar:   18, alu:    32, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:    32, ar:   18, alu:    32, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    125, instr:    52, acc:    32, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:    32, ar:   13, alu:    32, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    32, ar:   13, alu:    32, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:    32, ar:   13, alu:    32, mem_out:     6				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    126, instr:    52, acc:    32, mem_out:     6, ar:   13	tick!
+  DataPath	DEBUG	acc:     6, ar:   13, alu:    32, mem_out:     6				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    126, instr:    52, acc:     6, mem_out:     6, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    127, instr:    52, acc:     6, mem_out:     6, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    127, instr:    53, acc:     6, mem_out:     6, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     6, ar:   19, alu:    32, mem_out:     6				AR <- PC
+  DataPath	DEBUG	acc:     6, ar:   19, alu:    32, mem_out:     6				Reading memory on AR #19
+  DataPath	DEBUG	acc:     6, ar:   19, alu:    32, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    128, instr:    53, acc:     6, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     7, ar:   19, alu:     7, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    128, instr:    53, acc:     7, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    129, instr:    53, acc:     7, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    129, instr:    54, acc:     7, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     7, ar:   20, alu:     7, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     7, ar:   20, alu:     7, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     7, ar:   20, alu:     7, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    130, instr:    54, acc:     7, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:    13				MEM[13] <- 7
+  ControlUnit	DEBUG	PC:   21, tick:    130, instr:    54, acc:     7, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    131, instr:    54, acc:     7, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    131, instr:    55, acc:     7, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     7, ar:   21, alu:     7, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     7, ar:   21, alu:     7, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     7, ar:   21, alu:     7, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    132, instr:    55, acc:     7, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    132, instr:    55, acc:     7, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    133, instr:    55, acc:     7, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    133, instr:    56, acc:     7, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     7, ar:   14, alu:     7, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     7, ar:   14, alu:     7, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     7, ar:   14, alu:     7, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    134, instr:    56, acc:     7, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     7, ar:   13, alu:     7, mem_out:     7				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    135, instr:    56, acc:     7, mem_out:     7, ar:   13	tick!
+  DataPath	DEBUG	acc:     7, ar:    7, alu:     7, mem_out:     7				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     7, ar:    7, alu:     7, mem_out:     7				Reading memory on AR #7
+  DataPath	DEBUG	acc:     7, ar:    7, alu:     7, mem_out:   119				MEM_OUT <- MEM[7]
+  ControlUnit	DEBUG	PC:   14, tick:    136, instr:    56, acc:     7, mem_out:   119, ar:    7	tick!
+  DataPath	DEBUG	acc:   119, ar:    7, alu:     7, mem_out:   119				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    136, instr:    56, acc:   119, mem_out:   119, ar:    7	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    137, instr:    56, acc:   119, mem_out:   119, ar:    7	tick!
+  ControlUnit	INFO	PC:   15, tick:    137, instr:    57, acc:   119, mem_out:   119, ar:    7	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   119, ar:   15, alu:     7, mem_out:   119				AR <- PC
+  DataPath	DEBUG	acc:   119, ar:   15, alu:     7, mem_out:   119				Reading memory on AR #15
+  DataPath	DEBUG	acc:   119, ar:   15, alu:     7, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    138, instr:    57, acc:   119, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    138, instr:    57, acc:   119, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    139, instr:    57, acc:   119, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    139, instr:    58, acc:   119, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   119, ar:   16, alu:     7, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   119, ar:   16, alu:     7, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   119, ar:   16, alu:     7, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    140, instr:    58, acc:   119, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    140, instr:    58, acc:   119, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    141, instr:    58, acc:   119, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    141, instr:    59, acc:   119, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   119, ar:   17, alu:     7, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   119, ar:   17, alu:     7, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   119, ar:   17, alu:     7, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    142, instr:    59, acc:   119, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   119, ar: 2047, alu:     7, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   119, ar: 2047, alu:   119, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   119, ar: 2047, alu:   119, mem_out:  2047				Output: 'w' (119)
+  ControlUnit	DEBUG	PC:   18, tick:    142, instr:    59, acc:   119, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    143, instr:    59, acc:   119, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    143, instr:    60, acc:   119, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   119, ar:   18, alu:   119, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   119, ar:   18, alu:   119, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   119, ar:   18, alu:   119, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    144, instr:    60, acc:   119, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   119, ar:   13, alu:   119, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   119, ar:   13, alu:   119, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   119, ar:   13, alu:   119, mem_out:     7				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    145, instr:    60, acc:   119, mem_out:     7, ar:   13	tick!
+  DataPath	DEBUG	acc:     7, ar:   13, alu:   119, mem_out:     7				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    145, instr:    60, acc:     7, mem_out:     7, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    146, instr:    60, acc:     7, mem_out:     7, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    146, instr:    61, acc:     7, mem_out:     7, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     7, ar:   19, alu:   119, mem_out:     7				AR <- PC
+  DataPath	DEBUG	acc:     7, ar:   19, alu:   119, mem_out:     7				Reading memory on AR #19
+  DataPath	DEBUG	acc:     7, ar:   19, alu:   119, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    147, instr:    61, acc:     7, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     8, ar:   19, alu:     8, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    147, instr:    61, acc:     8, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    148, instr:    61, acc:     8, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    148, instr:    62, acc:     8, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     8, ar:   20, alu:     8, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     8, ar:   20, alu:     8, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     8, ar:   20, alu:     8, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    149, instr:    62, acc:     8, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:    13				MEM[13] <- 8
+  ControlUnit	DEBUG	PC:   21, tick:    149, instr:    62, acc:     8, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    150, instr:    62, acc:     8, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    150, instr:    63, acc:     8, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     8, ar:   21, alu:     8, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     8, ar:   21, alu:     8, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     8, ar:   21, alu:     8, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    151, instr:    63, acc:     8, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    151, instr:    63, acc:     8, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    152, instr:    63, acc:     8, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    152, instr:    64, acc:     8, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     8, ar:   14, alu:     8, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     8, ar:   14, alu:     8, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     8, ar:   14, alu:     8, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    153, instr:    64, acc:     8, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     8, ar:   13, alu:     8, mem_out:     8				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    154, instr:    64, acc:     8, mem_out:     8, ar:   13	tick!
+  DataPath	DEBUG	acc:     8, ar:    8, alu:     8, mem_out:     8				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     8, ar:    8, alu:     8, mem_out:     8				Reading memory on AR #8
+  DataPath	DEBUG	acc:     8, ar:    8, alu:     8, mem_out:   111				MEM_OUT <- MEM[8]
+  ControlUnit	DEBUG	PC:   14, tick:    155, instr:    64, acc:     8, mem_out:   111, ar:    8	tick!
+  DataPath	DEBUG	acc:   111, ar:    8, alu:     8, mem_out:   111				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    155, instr:    64, acc:   111, mem_out:   111, ar:    8	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    156, instr:    64, acc:   111, mem_out:   111, ar:    8	tick!
+  ControlUnit	INFO	PC:   15, tick:    156, instr:    65, acc:   111, mem_out:   111, ar:    8	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     8, mem_out:   111				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     8, mem_out:   111				Reading memory on AR #15
+  DataPath	DEBUG	acc:   111, ar:   15, alu:     8, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    157, instr:    65, acc:   111, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    157, instr:    65, acc:   111, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    158, instr:    65, acc:   111, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    158, instr:    66, acc:   111, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     8, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     8, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   111, ar:   16, alu:     8, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    159, instr:    66, acc:   111, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    159, instr:    66, acc:   111, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    160, instr:    66, acc:   111, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    160, instr:    67, acc:   111, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     8, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     8, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   111, ar:   17, alu:     8, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    161, instr:    67, acc:   111, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   111, ar: 2047, alu:     8, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   111, ar: 2047, alu:   111, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   111, ar: 2047, alu:   111, mem_out:  2047				Output: 'o' (111)
+  ControlUnit	DEBUG	PC:   18, tick:    161, instr:    67, acc:   111, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    162, instr:    67, acc:   111, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    162, instr:    68, acc:   111, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   111, ar:   18, alu:   111, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    163, instr:    68, acc:   111, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   111, ar:   13, alu:   111, mem_out:     8				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    164, instr:    68, acc:   111, mem_out:     8, ar:   13	tick!
+  DataPath	DEBUG	acc:     8, ar:   13, alu:   111, mem_out:     8				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    164, instr:    68, acc:     8, mem_out:     8, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    165, instr:    68, acc:     8, mem_out:     8, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    165, instr:    69, acc:     8, mem_out:     8, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     8, ar:   19, alu:   111, mem_out:     8				AR <- PC
+  DataPath	DEBUG	acc:     8, ar:   19, alu:   111, mem_out:     8				Reading memory on AR #19
+  DataPath	DEBUG	acc:     8, ar:   19, alu:   111, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    166, instr:    69, acc:     8, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:     9, ar:   19, alu:     9, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    166, instr:    69, acc:     9, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    167, instr:    69, acc:     9, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    167, instr:    70, acc:     9, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:     9, ar:   20, alu:     9, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:     9, ar:   20, alu:     9, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:     9, ar:   20, alu:     9, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    168, instr:    70, acc:     9, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:    13				MEM[13] <- 9
+  ControlUnit	DEBUG	PC:   21, tick:    168, instr:    70, acc:     9, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    169, instr:    70, acc:     9, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    169, instr:    71, acc:     9, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:     9, ar:   21, alu:     9, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:     9, ar:   21, alu:     9, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:     9, ar:   21, alu:     9, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    170, instr:    71, acc:     9, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    170, instr:    71, acc:     9, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    171, instr:    71, acc:     9, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    171, instr:    72, acc:     9, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:     9, ar:   14, alu:     9, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:     9, ar:   14, alu:     9, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:     9, ar:   14, alu:     9, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    172, instr:    72, acc:     9, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:     9, ar:   13, alu:     9, mem_out:     9				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    173, instr:    72, acc:     9, mem_out:     9, ar:   13	tick!
+  DataPath	DEBUG	acc:     9, ar:    9, alu:     9, mem_out:     9				AR <- MEM_OUT
+  DataPath	DEBUG	acc:     9, ar:    9, alu:     9, mem_out:     9				Reading memory on AR #9
+  DataPath	DEBUG	acc:     9, ar:    9, alu:     9, mem_out:   114				MEM_OUT <- MEM[9]
+  ControlUnit	DEBUG	PC:   14, tick:    174, instr:    72, acc:     9, mem_out:   114, ar:    9	tick!
+  DataPath	DEBUG	acc:   114, ar:    9, alu:     9, mem_out:   114				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    174, instr:    72, acc:   114, mem_out:   114, ar:    9	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    175, instr:    72, acc:   114, mem_out:   114, ar:    9	tick!
+  ControlUnit	INFO	PC:   15, tick:    175, instr:    73, acc:   114, mem_out:   114, ar:    9	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   114, ar:   15, alu:     9, mem_out:   114				AR <- PC
+  DataPath	DEBUG	acc:   114, ar:   15, alu:     9, mem_out:   114				Reading memory on AR #15
+  DataPath	DEBUG	acc:   114, ar:   15, alu:     9, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    176, instr:    73, acc:   114, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    176, instr:    73, acc:   114, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    177, instr:    73, acc:   114, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    177, instr:    74, acc:   114, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   114, ar:   16, alu:     9, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   114, ar:   16, alu:     9, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   114, ar:   16, alu:     9, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    178, instr:    74, acc:   114, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    178, instr:    74, acc:   114, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    179, instr:    74, acc:   114, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    179, instr:    75, acc:   114, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   114, ar:   17, alu:     9, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   114, ar:   17, alu:     9, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   114, ar:   17, alu:     9, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    180, instr:    75, acc:   114, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   114, ar: 2047, alu:     9, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   114, ar: 2047, alu:   114, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   114, ar: 2047, alu:   114, mem_out:  2047				Output: 'r' (114)
+  ControlUnit	DEBUG	PC:   18, tick:    180, instr:    75, acc:   114, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    181, instr:    75, acc:   114, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    181, instr:    76, acc:   114, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   114, ar:   18, alu:   114, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   114, ar:   18, alu:   114, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   114, ar:   18, alu:   114, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    182, instr:    76, acc:   114, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   114, ar:   13, alu:   114, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   114, ar:   13, alu:   114, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   114, ar:   13, alu:   114, mem_out:     9				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    183, instr:    76, acc:   114, mem_out:     9, ar:   13	tick!
+  DataPath	DEBUG	acc:     9, ar:   13, alu:   114, mem_out:     9				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    183, instr:    76, acc:     9, mem_out:     9, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    184, instr:    76, acc:     9, mem_out:     9, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    184, instr:    77, acc:     9, mem_out:     9, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:     9, ar:   19, alu:   114, mem_out:     9				AR <- PC
+  DataPath	DEBUG	acc:     9, ar:   19, alu:   114, mem_out:     9				Reading memory on AR #19
+  DataPath	DEBUG	acc:     9, ar:   19, alu:   114, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    185, instr:    77, acc:     9, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:    10, ar:   19, alu:    10, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    185, instr:    77, acc:    10, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    186, instr:    77, acc:    10, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    186, instr:    78, acc:    10, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:    10, ar:   20, alu:    10, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:    10, ar:   20, alu:    10, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:    10, ar:   20, alu:    10, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    187, instr:    78, acc:    10, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    13				MEM[13] <- 10
+  ControlUnit	DEBUG	PC:   21, tick:    187, instr:    78, acc:    10, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    188, instr:    78, acc:    10, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    188, instr:    79, acc:    10, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:    10, ar:   21, alu:    10, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:    10, ar:   21, alu:    10, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:    10, ar:   21, alu:    10, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    189, instr:    79, acc:    10, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    189, instr:    79, acc:    10, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    190, instr:    79, acc:    10, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    190, instr:    80, acc:    10, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:    10, ar:   14, alu:    10, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:    10, ar:   14, alu:    10, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:    10, ar:   14, alu:    10, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    191, instr:    80, acc:    10, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:    10, ar:   13, alu:    10, mem_out:    10				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    192, instr:    80, acc:    10, mem_out:    10, ar:   13	tick!
+  DataPath	DEBUG	acc:    10, ar:   10, alu:    10, mem_out:    10				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    10, ar:   10, alu:    10, mem_out:    10				Reading memory on AR #10
+  DataPath	DEBUG	acc:    10, ar:   10, alu:    10, mem_out:   108				MEM_OUT <- MEM[10]
+  ControlUnit	DEBUG	PC:   14, tick:    193, instr:    80, acc:    10, mem_out:   108, ar:   10	tick!
+  DataPath	DEBUG	acc:   108, ar:   10, alu:    10, mem_out:   108				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    193, instr:    80, acc:   108, mem_out:   108, ar:   10	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    194, instr:    80, acc:   108, mem_out:   108, ar:   10	tick!
+  ControlUnit	INFO	PC:   15, tick:    194, instr:    81, acc:   108, mem_out:   108, ar:   10	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   108, ar:   15, alu:    10, mem_out:   108				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   15, alu:    10, mem_out:   108				Reading memory on AR #15
+  DataPath	DEBUG	acc:   108, ar:   15, alu:    10, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    195, instr:    81, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    195, instr:    81, acc:   108, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    196, instr:    81, acc:   108, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    196, instr:    82, acc:   108, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   16, alu:    10, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   16, alu:    10, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   108, ar:   16, alu:    10, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    197, instr:    82, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    197, instr:    82, acc:   108, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    198, instr:    82, acc:   108, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    198, instr:    83, acc:   108, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   17, alu:    10, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   17, alu:    10, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   108, ar:   17, alu:    10, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    199, instr:    83, acc:   108, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:    10, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   108, ar: 2047, alu:   108, mem_out:  2047				Output: 'l' (108)
+  ControlUnit	DEBUG	PC:   18, tick:    199, instr:    83, acc:   108, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    200, instr:    83, acc:   108, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    200, instr:    84, acc:   108, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   108, ar:   18, alu:   108, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    201, instr:    84, acc:   108, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   108, ar:   13, alu:   108, mem_out:    10				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    202, instr:    84, acc:   108, mem_out:    10, ar:   13	tick!
+  DataPath	DEBUG	acc:    10, ar:   13, alu:   108, mem_out:    10				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    202, instr:    84, acc:    10, mem_out:    10, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    203, instr:    84, acc:    10, mem_out:    10, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    203, instr:    85, acc:    10, mem_out:    10, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:    10, ar:   19, alu:   108, mem_out:    10				AR <- PC
+  DataPath	DEBUG	acc:    10, ar:   19, alu:   108, mem_out:    10				Reading memory on AR #19
+  DataPath	DEBUG	acc:    10, ar:   19, alu:   108, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    204, instr:    85, acc:    10, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:    11, ar:   19, alu:    11, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    204, instr:    85, acc:    11, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    205, instr:    85, acc:    11, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    205, instr:    86, acc:    11, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:    11, ar:   20, alu:    11, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:    11, ar:   20, alu:    11, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:    11, ar:   20, alu:    11, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    206, instr:    86, acc:    11, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    13				MEM[13] <- 11
+  ControlUnit	DEBUG	PC:   21, tick:    206, instr:    86, acc:    11, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    207, instr:    86, acc:    11, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    207, instr:    87, acc:    11, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:    11, ar:   21, alu:    11, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:    11, ar:   21, alu:    11, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:    11, ar:   21, alu:    11, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    208, instr:    87, acc:    11, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    208, instr:    87, acc:    11, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    209, instr:    87, acc:    11, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    209, instr:    88, acc:    11, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:    11, ar:   14, alu:    11, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:    11, ar:   14, alu:    11, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:    11, ar:   14, alu:    11, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    210, instr:    88, acc:    11, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:    11, ar:   13, alu:    11, mem_out:    11				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    211, instr:    88, acc:    11, mem_out:    11, ar:   13	tick!
+  DataPath	DEBUG	acc:    11, ar:   11, alu:    11, mem_out:    11				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    11, ar:   11, alu:    11, mem_out:    11				Reading memory on AR #11
+  DataPath	DEBUG	acc:    11, ar:   11, alu:    11, mem_out:   100				MEM_OUT <- MEM[11]
+  ControlUnit	DEBUG	PC:   14, tick:    212, instr:    88, acc:    11, mem_out:   100, ar:   11	tick!
+  DataPath	DEBUG	acc:   100, ar:   11, alu:    11, mem_out:   100				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    212, instr:    88, acc:   100, mem_out:   100, ar:   11	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    213, instr:    88, acc:   100, mem_out:   100, ar:   11	tick!
+  ControlUnit	INFO	PC:   15, tick:    213, instr:    89, acc:   100, mem_out:   100, ar:   11	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:   100, ar:   15, alu:    11, mem_out:   100				AR <- PC
+  DataPath	DEBUG	acc:   100, ar:   15, alu:    11, mem_out:   100				Reading memory on AR #15
+  DataPath	DEBUG	acc:   100, ar:   15, alu:    11, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    214, instr:    89, acc:   100, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    214, instr:    89, acc:   100, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    215, instr:    89, acc:   100, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    215, instr:    90, acc:   100, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:   100, ar:   16, alu:    11, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:   100, ar:   16, alu:    11, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:   100, ar:   16, alu:    11, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    216, instr:    90, acc:   100, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   17, tick:    216, instr:    90, acc:   100, mem_out:    22, ar:   16	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   17, tick:    217, instr:    90, acc:   100, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   17, tick:    217, instr:    91, acc:   100, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:   100, ar:   17, alu:    11, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:   100, ar:   17, alu:    11, mem_out:    22				Reading memory on AR #17
+  DataPath	DEBUG	acc:   100, ar:   17, alu:    11, mem_out:  2047				MEM_OUT <- MEM[17]
+  ControlUnit	DEBUG	PC:   17, tick:    218, instr:    91, acc:   100, mem_out:  2047, ar:   17	tick!
+  DataPath	DEBUG	acc:   100, ar: 2047, alu:    11, mem_out:  2047				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   100, ar: 2047, alu:   100, mem_out:  2047				Writing to memory on AR #2047
+  DataPath	INFO	acc:   100, ar: 2047, alu:   100, mem_out:  2047				Output: 'd' (100)
+  ControlUnit	DEBUG	PC:   18, tick:    218, instr:    91, acc:   100, mem_out:  2047, ar: 2047	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   18, tick:    219, instr:    91, acc:   100, mem_out:  2047, ar: 2047	tick!
+  ControlUnit	INFO	PC:   18, tick:    219, instr:    92, acc:   100, mem_out:  2047, ar: 2047	Executed instruction `st 2047` in 2 ticks
+  DataPath	DEBUG	acc:   100, ar:   18, alu:   100, mem_out:  2047				AR <- PC
+  DataPath	DEBUG	acc:   100, ar:   18, alu:   100, mem_out:  2047				Reading memory on AR #18
+  DataPath	DEBUG	acc:   100, ar:   18, alu:   100, mem_out:    13				MEM_OUT <- MEM[18]
+  ControlUnit	DEBUG	PC:   18, tick:    220, instr:    92, acc:   100, mem_out:    13, ar:   18	tick!
+  DataPath	DEBUG	acc:   100, ar:   13, alu:   100, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:   100, ar:   13, alu:   100, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:   100, ar:   13, alu:   100, mem_out:    11				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   18, tick:    221, instr:    92, acc:   100, mem_out:    11, ar:   13	tick!
+  DataPath	DEBUG	acc:    11, ar:   13, alu:   100, mem_out:    11				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   19, tick:    221, instr:    92, acc:    11, mem_out:    11, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   19, tick:    222, instr:    92, acc:    11, mem_out:    11, ar:   13	tick!
+  ControlUnit	INFO	PC:   19, tick:    222, instr:    93, acc:    11, mem_out:    11, ar:   13	Executed instruction `ld (13)` in 3 ticks
+  DataPath	DEBUG	acc:    11, ar:   19, alu:   100, mem_out:    11				AR <- PC
+  DataPath	DEBUG	acc:    11, ar:   19, alu:   100, mem_out:    11				Reading memory on AR #19
+  DataPath	DEBUG	acc:    11, ar:   19, alu:   100, mem_out:     1				MEM_OUT <- MEM[19]
+  ControlUnit	DEBUG	PC:   19, tick:    223, instr:    93, acc:    11, mem_out:     1, ar:   19	tick!
+  DataPath	DEBUG	acc:    12, ar:   19, alu:    12, mem_out:     1				ACC <- ALU_OUT
+  ControlUnit	DEBUG	PC:   20, tick:    223, instr:    93, acc:    12, mem_out:     1, ar:   19	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   20, tick:    224, instr:    93, acc:    12, mem_out:     1, ar:   19	tick!
+  ControlUnit	INFO	PC:   20, tick:    224, instr:    94, acc:    12, mem_out:     1, ar:   19	Executed instruction `add 1` in 2 ticks
+  DataPath	DEBUG	acc:    12, ar:   20, alu:    12, mem_out:     1				AR <- PC
+  DataPath	DEBUG	acc:    12, ar:   20, alu:    12, mem_out:     1				Reading memory on AR #20
+  DataPath	DEBUG	acc:    12, ar:   20, alu:    12, mem_out:    13				MEM_OUT <- MEM[20]
+  ControlUnit	DEBUG	PC:   20, tick:    225, instr:    94, acc:    12, mem_out:    13, ar:   20	tick!
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    13				Writing to memory on AR #13
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    13				MEM[13] <- 12
+  ControlUnit	DEBUG	PC:   21, tick:    225, instr:    94, acc:    12, mem_out:    13, ar:   13	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   21, tick:    226, instr:    94, acc:    12, mem_out:    13, ar:   13	tick!
+  ControlUnit	INFO	PC:   21, tick:    226, instr:    95, acc:    12, mem_out:    13, ar:   13	Executed instruction `st 13` in 2 ticks
+  DataPath	DEBUG	acc:    12, ar:   21, alu:    12, mem_out:    13				AR <- PC
+  DataPath	DEBUG	acc:    12, ar:   21, alu:    12, mem_out:    13				Reading memory on AR #21
+  DataPath	DEBUG	acc:    12, ar:   21, alu:    12, mem_out:    14				MEM_OUT <- MEM[21]
+  ControlUnit	DEBUG	PC:   21, tick:    227, instr:    95, acc:    12, mem_out:    14, ar:   21	tick!
+  ControlUnit	DEBUG	PC:   14, tick:    227, instr:    95, acc:    12, mem_out:    14, ar:   21	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   14, tick:    228, instr:    95, acc:    12, mem_out:    14, ar:   21	tick!
+  ControlUnit	INFO	PC:   14, tick:    228, instr:    96, acc:    12, mem_out:    14, ar:   21	Executed instruction `jmp 14` in 2 ticks
+  DataPath	DEBUG	acc:    12, ar:   14, alu:    12, mem_out:    14				AR <- PC
+  DataPath	DEBUG	acc:    12, ar:   14, alu:    12, mem_out:    14				Reading memory on AR #14
+  DataPath	DEBUG	acc:    12, ar:   14, alu:    12, mem_out:    13				MEM_OUT <- MEM[14]
+  ControlUnit	DEBUG	PC:   14, tick:    229, instr:    96, acc:    12, mem_out:    13, ar:   14	tick!
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    13				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    13				Reading memory on AR #13
+  DataPath	DEBUG	acc:    12, ar:   13, alu:    12, mem_out:    12				MEM_OUT <- MEM[13]
+  ControlUnit	DEBUG	PC:   14, tick:    230, instr:    96, acc:    12, mem_out:    12, ar:   13	tick!
+  DataPath	DEBUG	acc:    12, ar:   12, alu:    12, mem_out:    12				AR <- MEM_OUT
+  DataPath	DEBUG	acc:    12, ar:   12, alu:    12, mem_out:    12				Reading memory on AR #12
+  DataPath	DEBUG	acc:    12, ar:   12, alu:    12, mem_out:     0				MEM_OUT <- MEM[12]
+  ControlUnit	DEBUG	PC:   14, tick:    231, instr:    96, acc:    12, mem_out:     0, ar:   12	tick!
+  DataPath	DEBUG	acc:     0, ar:   12, alu:    12, mem_out:     0				ACC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   15, tick:    231, instr:    96, acc:     0, mem_out:     0, ar:   12	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   15, tick:    232, instr:    96, acc:     0, mem_out:     0, ar:   12	tick!
+  ControlUnit	INFO	PC:   15, tick:    232, instr:    97, acc:     0, mem_out:     0, ar:   12	Executed instruction `ld [13]` in 4 ticks
+  DataPath	DEBUG	acc:     0, ar:   15, alu:    12, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:     0, ar:   15, alu:    12, mem_out:     0				Reading memory on AR #15
+  DataPath	DEBUG	acc:     0, ar:   15, alu:    12, mem_out:     0				MEM_OUT <- MEM[15]
+  ControlUnit	DEBUG	PC:   15, tick:    233, instr:    97, acc:     0, mem_out:     0, ar:   15	tick!
+  ControlUnit	DEBUG	PC:   16, tick:    233, instr:    97, acc:     0, mem_out:     0, ar:   15	PC <- PC + 1
+  ControlUnit	DEBUG	PC:   16, tick:    234, instr:    97, acc:     0, mem_out:     0, ar:   15	tick!
+  ControlUnit	INFO	PC:   16, tick:    234, instr:    98, acc:     0, mem_out:     0, ar:   15	Executed instruction `cmp 0` in 2 ticks
+  DataPath	DEBUG	acc:     0, ar:   16, alu:    12, mem_out:     0				AR <- PC
+  DataPath	DEBUG	acc:     0, ar:   16, alu:    12, mem_out:     0				Reading memory on AR #16
+  DataPath	DEBUG	acc:     0, ar:   16, alu:    12, mem_out:    22				MEM_OUT <- MEM[16]
+  ControlUnit	DEBUG	PC:   16, tick:    235, instr:    98, acc:     0, mem_out:    22, ar:   16	tick!
+  ControlUnit	DEBUG	PC:   22, tick:    235, instr:    98, acc:     0, mem_out:    22, ar:   16	PC <- MEM_OUT
+  ControlUnit	DEBUG	PC:   22, tick:    236, instr:    98, acc:     0, mem_out:    22, ar:   16	tick!
+  ControlUnit	INFO	PC:   22, tick:    236, instr:    99, acc:     0, mem_out:    22, ar:   16	Executed instruction `jz 22` in 2 ticks
+  DataPath	DEBUG	acc:     0, ar:   22, alu:    12, mem_out:    22				AR <- PC
+  DataPath	DEBUG	acc:     0, ar:   22, alu:    12, mem_out:    22				Reading memory on AR #22
+  DataPath	DEBUG	acc:     0, ar:   22, alu:    12, mem_out:     0				MEM_OUT <- MEM[22]
+  ControlUnit	DEBUG	PC:   22, tick:    237, instr:    99, acc:     0, mem_out:     0, ar:   22	tick!
+out_stdout: |
+  Input file LoC: 11
+  Code instr: 23
+  ============================================================
+  Program halted successfully
+  hello, world
+  Total instructions 99
+  Total ticks 237
+out_code: |-
+  {
+    "pc": 14,
+    "instructions": [
+      [
+        "var",
+        104,
+        "immediate"
+      ],
+      [
+        "var",
+        101,
+        "immediate"
+      ],
+      [
+        "var",
+        108,
+        "immediate"
+      ],
+      [
+        "var",
+        108,
+        "immediate"
+      ],
+      [
+        "var",
+        111,
+        "immediate"
+      ],
+      [
+        "var",
+        44,
+        "immediate"
+      ],
+      [
+        "var",
+        32,
+        "immediate"
+      ],
+      [
+        "var",
+        119,
+        "immediate"
+      ],
+      [
+        "var",
+        111,
+        "immediate"
+      ],
+      [
+        "var",
+        114,
+        "immediate"
+      ],
+      [
+        "var",
+        108,
+        "immediate"
+      ],
+      [
+        "var",
+        100,
+        "immediate"
+      ],
+      [
+        "var",
+        0,
+        "immediate"
+      ],
+      [
+        "var",
+        0,
+        "immediate"
+      ],
+      [
+        "ld",
+        13,
+        "indirect"
+      ],
+      [
+        "cmp",
+        0,
+        "immediate"
+      ],
+      [
+        "jz",
+        22,
+        "immediate"
+      ],
+      [
+        "st",
+        2047,
+        "immediate"
+      ],
+      [
+        "ld",
+        13,
+        "direct"
+      ],
+      [
+        "add",
+        1,
+        "immediate"
+      ],
+      [
+        "st",
+        13,
+        "immediate"
+      ],
+      [
+        "jmp",
+        14,
+        "immediate"
+      ],
+      [
+        "hlt",
+        null,
+        null
+      ]
+    ]
+  }
